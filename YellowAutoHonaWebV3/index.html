@@ -1,0 +1,59 @@
+<html ng-app="myApp" ng-controller="MyCtrl" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HarankTechnologies</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="css/app.css" rel="stylesheet">
+      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+  
+</head>
+
+ <body class="cbp-spmenu-push">
+					
+                    <button id="showTop">Show/Hide Top Slide Menu</button>
+<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
+			<h3>Autohona</h3>
+            <a><input type="text"   id="pac-input1" style="width:100%;height:50%;" placeholder="enter source" /></a>
+              <a><input type="text"  id="pac-input2" style="width:100%;height:50%;" placeholder="enter Destination" /></a>
+			<a href="#" ng-click="search()" id="showRight">Search</a>
+		</nav>
+  		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+			<h3>Auto List</h3>
+			<div ng-repeat="user in autolist  | orderBy:'dist'">
+    
+       <a> Auto No. :{{user.autoid}}  <br/>  Driver name :{{user.drivername}} <br/>  Distance :{{user.dist}} KM  <button> Details.. </button></a> 
+
+       
+		</div>
+		</nav>
+    <div id="map-canvas" ng-init="initialize();"></div>
+   
+		
+  </body>
+
+    <!-- /Full Page Image Header Area -->
+
+    
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+  
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.3/angular.min.js"></script>
+ <script src="js/classie.js"></script>
+<script src="js/modules.js"></script>
+</body>
+
+</html>
