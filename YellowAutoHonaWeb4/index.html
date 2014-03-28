@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Autohona</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/app.css" />
+    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+        <link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="js/mapmodule.js"></script>
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+
+   
+  </head>
+  <body class="cbp-spmenu-push" >
+					
+                    <div id="showTop"></div>
+<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
+			<h3>Autohona</h3>
+            <a><input type="text" id="pac-input1" style="width:100%;"placeholder="enter source" /></a>
+              <a><input type="text" id="pac-input2" style="width:100%;" placeholder="enter Destination" /></a>
+			<a href="#" id="showRight">Search</a>
+		</nav>
+		
+		
+		<!-- footer -->
+		<div id="showBottom"></div>
+		<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
+			<h4>@copyrights2014 by harank technologies</h4>
+		</nav>
+		
+		<!-- footer end -->
+		
+		
+		
+		
+  		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s2" style="direction:rtl;height:84%;overflow:auto;">
+			<div id="autolistDiv" style="direction:ltr;">
+			</div>
+		</nav>
+    <div id="map-canvas"></div>
+    
+    <!-- for popup -->
+      <div id="light" class="white_content">
+	   <div class="white_content_data">
+       <a href = "#" style="float:right; color:#000;" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+       <div id="profile" >
+       
+       <div id="profile_details">
+       
+        <table border="0" style="width:100%;">
+		<tr>
+			<th colspan="1">Auto Profile</th>
+  		</tr>
+		<tr>
+			<td>Driver Name</td>
+			<td> <li id="get_drivername"> </li></td>
+		</tr>
+		<tr>
+			<td>Auto No:</td>
+			<td><li id="get_autonumber"></li></td>
+		</tr>
+		<tr>
+			<td>Phone No:</td>
+			<td><li id="get_phonenum"></li></td>
+		</tr>
+		<tr>
+			<td>Rating</td>
+			<td><li id="get_rating"></li><span></span></td>
+		</tr>
+		<tr>
+			
+  		</tr>
+</table>
+
+</div>
+       </div>
+       </div>
+	   <div class="white_content_datarev">
+	   <textarea rows="4" cols="50"> Post your comment here....</textarea>
+	   
+	   <a onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" id="modal_trigger" href="#modal" class="buttonth">Review</a>
+	   </div>
+       </div>
+        
+        
+        
+        
+        <div id="fade" class="black_overlay"></div>
+		
+    <div class="containera">
+	<div id="modal" class="popupContainer" style="display:none;">
+		<header class="popupHeader">
+			<span class="header_title">Login</span>
+			<span class="modal_close"><i class="fa fa-times"></i></span>
+		</header>
+		
+		<section class="popupBody">
+			<!-- Social Login -->
+			<div class="social_login">
+				<div class="">
+					<a href="#" class="social_box fb">
+						<span class="icon"><i class="fa fa-facebook"></i></span>
+						<span class="icon_title">Connect with Facebook</span>
+						
+					</a>
+
+					<a href="#" class="social_box google">
+						<span class="icon"><i class="fa fa-google-plus"></i></span>
+						<span class="icon_title">Connect with Google</span>
+					</a>
+				</div>
+
+				<div class="centeredText">
+					<span>Or use your Email address</span>
+				</div>
+
+				<div class="action_btns">
+					<div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
+					<div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+				</div>
+			</div>
+
+			<!-- Username & Password Login form -->
+			<div class="user_login">
+				<form>
+					<label>Email / Username</label>
+					<input type="text" />
+					<br />
+
+					<label>Password</label>
+					<input type="password" />
+					<br />
+
+					<div class="checkbox">
+						<input id="remember" type="checkbox" />
+						<label for="remember">Remember me on this computer</label>
+					</div>
+
+					<div class="action_btns">
+						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+						<div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+					</div>
+				</form>
+
+				<a href="#" class="forgot_password">Forgot password?</a>
+			</div>
+
+			<!-- Register Form -->
+			<div class="user_register">
+				<form>
+					<label>Full Name</label>
+					<input type="text" />
+					<br />
+
+					<label>Email Address</label>
+					<input type="email" />
+					<br />
+
+					<label>Password</label>
+					<input type="password" />
+					<br />
+
+					<div class="checkbox">
+						<input id="send_updates" type="checkbox" />
+						<label for="send_updates">Send me occasional email updates</label>
+					</div>
+
+					<div class="action_btns">
+						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+						<div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</div>
+
+    
+    <script src="js/classie.js"></script>
+		<script src="js/cssmodule.js"></script>
+		 <script>
+    
+function visibleDiv(ele){
+	alert("sss");
+	alert(ele.id);
+	
+		
+		document.getElementById('light').style.display='block';
+		document.getElementById('fade').style.display='block';
+
+		var autodata=window.location.autolist;
+		alert(autodata.length);
+
+			 var answer;
+			 $.each(autodata,function(index,value){
+			  
+				 if (value.autoid === ele.id) 
+                      answer=value;
+			    
+			    
+			  });
+			 alert(answer.drivername);
+
+			 $("#photo").html("<img width='80px' style='float:left;' height='80px' src='"+answer.url+"'/>");
+			$("#get_drivername").html(answer.drivername);
+			$("#get_autonumber").html(answer.autoid);
+			$("#get_phonenum").html(answer.phonenum);
+			$("#get_rating").html(answer.rating+"/5");
+			
+			 
+	}
+    
+    
+    </script>
+		<script type="text/javascript">
+	$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+
+	$(function(){
+		// Calling Login Form
+		$("#login_form").click(function(){
+			$(".social_login").hide();
+			$(".user_login").show();
+			return false;
+		});
+
+		// Calling Register Form
+		$("#register_form").click(function(){
+			$(".social_login").hide();
+			$(".user_register").show();
+			$(".header_title").text('Register');
+			return false;
+		});
+
+		// Going back to Social Forms
+		$(".back_btn").click(function(){
+			$(".user_login").hide();
+			$(".user_register").hide();
+			$(".social_login").show();
+			$(".header_title").text('Login');
+			return false;
+		});
+
+	})
+</script>
+  </body>
+</html>
