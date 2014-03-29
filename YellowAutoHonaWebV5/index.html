@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Autohona</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/app.css" />
+    
+    
+        <link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+		
+		<script src="js/modernizr.custom.js"></script>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="js/jquery.raty.min.js"></script>
+		<script type="text/javascript" src="js/mapmodule.js"></script>
+		<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+    <script type="text/javascript" src="js/getclientprofile.js"></script>
+   
+  </head>
+  <body class="cbp-spmenu-push" >
+					
+                    <div id="showTop"></div>
+<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-top" id="cbp-spmenu-s3">
+			<h3>Autohona</h3>
+            <a><input type="text" id="pac-input1" style="width:100%;"placeholder="enter source" /></a>
+              <a><input type="text" id="pac-input2" style="width:100%;" placeholder="enter Destination" /></a>
+			<a href="#" id="showRight">Search</a>
+		</nav>
+		
+		
+		<!-- footer -->
+		<div id="showBottom"></div>
+		<nav class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
+			<h4>@copyrights2014 by harank technologies</h4>
+		</nav>
+		
+		<!-- footer end -->
+		
+		
+		
+		
+  		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s2" style="direction:rtl;height:84%;overflow:auto;">
+			<div id="autolistDiv" style="direction:ltr;">
+			</div>
+		</nav>
+    <div id="map-canvas"></div>
+    
+    <!-- for popup -->
+      <div id="light" class="white_content">
+	   <div class="white_content_data">
+        <a href = "#" style="float:right; color:#000;" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+        <div id="profile" >
+        
+        
+        <table border="0" style="margin-left: auto;margin-right: auto;">
+  <tr>
+    <th colspan="3">Auto Profile</th>
+  </tr>
+  <tr>
+    <td>Driver Name</td>
+    <td>:</td>
+    <td> <span id="get_drivername"> </span></td>
+    
+  </tr>
+  <tr>
+    <td>Auto No:</td>
+    <td>:</td>
+    <td><span id="get_autonumber"></span></td>
+  </tr>
+  <tr>
+    <td>Phone No:</td>
+    <td>:</td>
+    <td><span id="get_phonenum"></span></td>
+  </tr>
+  <tr>
+    <td>Rating:</td>
+    <td>:</td>
+    <td><span id="get_rating"></span></td>
+  </tr>
+</table>
+        
+      </div>
+      </div>
+         <!-- end signin button for google++ -->
+               
+	<div class="white_content_datarev">
+	   <textarea rows="4" cols="50"> Post your comment here....</textarea>
+	   
+	   <a style="float: right;"  id="review_button" href="#modal" class="buttonth">Rate & Review</a> <!-- onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" -->
+<br/>
+      <div id="reviewslist" style="overflow:auto;">
+      
+      </div>
+	   
+	   </div>	
+	   	 </div>
+	        <div id="fade" class="black_overlay"></div>
+	        
+		<div class="container">
+		<div id="modal" class="popupContainer" style="display:none;">
+		<header class="popupHeader">
+			<span class="header_title">Login</span>
+			<span class="modal_close"><i class="fa fa-times"></i></span>
+		</header>
+		
+		<section class="popupBody">
+			<!-- Social Login -->
+			<div class="social_login">
+				<div class="">
+					<a href="#" class="social_box fb">
+						<span class="icon"><i class="fa fa-facebook"></i></span>
+						<span class="icon_title">Connect with Facebook</span>
+						
+					</a>
+
+					<a href="#" class="social_box google">
+	   <span id="signinButton">
+  <span
+    class="g-signin"
+    data-callback="signinCallback"
+    data-clientid="149080048409.apps.googleusercontent.com"
+    data-cookiepolicy="single_host_origin"
+    data-requestvisibleactions="http://schemas.google.com/AddActivity"
+    data-scope="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email"
+	data-theme="dark">
+  </span>
+</span>				</a>
+				</div>
+
+				<div class="centeredText">
+					<span>Or use your Email address</span>
+				</div>
+
+				<div class="action_btns">
+					<div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
+					<div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+				</div>
+			</div>
+
+			<!-- Username & Password Login form -->
+			<div class="user_login">
+				<form>
+					<label>Email / Username</label>
+					<input type="text" />
+					<br />
+
+					<label>Password</label>
+					<input type="password" />
+					<br />
+
+					<div class="checkbox">
+						<input id="remember" type="checkbox" />
+						<label for="remember">Remember me on this computer</label>
+					</div>
+
+					<div class="action_btns">
+						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+						<div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+					</div>
+				</form>
+
+				<a href="#" class="forgot_password">Forgot password?</a>
+			</div>
+
+			<!-- Register Form -->
+			<div class="user_register">
+				<form>
+					<label>Full Name</label>
+					<input type="text" />
+					<br />
+
+					<label>Email Address</label>
+					<input type="email" />
+					<br />
+
+					<label>Password</label>
+					<input type="password" />
+					<br />
+
+					<div class="checkbox">
+						<input id="send_updates" type="checkbox" />
+						<label for="send_updates">Send me occasional email updates</label>
+					</div>
+
+					<div class="action_btns">
+						<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+						<div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+					</div>
+				</form>
+			</div>
+		</section>
+	</div>
+</div>
+			
+ <script src="js/classie.js"></script>
+		<script src="js/cssmodule.js"></script>
+		 <script>
+    
+function visibleDiv(ele){
+
+	
+	$.blockUI({
+		message : '<h3><img src="img/loader.gif" /> Just a moment...</h3>',
+		css : {
+			border : '0px'
+		}
+	});
+	$.ajax({
+		url : "http://192.168.1.130:8080/AutoHona/getAutoData.php?type=reviews&&autoid="+ele.id,
+		cache : false,
+		dataType : "json",
+		success : function(data) {
+		$.unblockUI();
+		var reviewslist=data[0].data;
+		$("#reviewslist").html("");
+		$.each(reviewslist,function(index,value){
+			
+			$("#reviewslist").append("<div><span><b>"+value.username+" <span id='"+value.userid+""+value.rating+"'></span></b></span><br><span>Comment:"+value.comment+"</span></div><br>");
+			$("#"+value.userid+""+value.rating).raty({ readOnly: true, score: value.rating });
+			
+		  });
+		},
+		error: function(e){
+			$.unblockUI();
+			
+		}
+		
+	});
+	
+	
+
+	
+		
+		document.getElementById('light').style.display='block';
+		document.getElementById('fade').style.display='block';
+
+		var autodata=window.location.autolist;
+		
+
+			 var answer;
+			 $.each(autodata,function(index,value){
+			  
+				 if (value.autoid === ele.id) 
+                      answer=value;
+			    
+			    
+			  });
+			
+
+			 $("#photo").html("<img width='80px' style='float:left;' height='80px' src='"+answer.url+"'/>");
+			$("#get_drivername").html(answer.drivername);
+			$("#get_autonumber").html(answer.autoid);
+			$("#get_phonenum").html(answer.phonenum);
+			$("#get_rating").raty({ readOnly: true, score: answer.rating });
+
+			
+			
+			 
+	}
+    
+    
+    </script>
+<!-- Login box code -->
+<script type="text/javascript">
+	$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+	$("#review_button").click(function(){
+		alert("ss");//http://192.168.1.130:8080/AutoHona/getAutoData.php?type=savereview&autoid=1001&userid=101&rating=1&comment=GOOD
+	  $.ajax({
+		  
+		  url: "http://192.168.1.130:8080/AutoHona/getAutoData.php?type=savereview&autoid=1001&userid=101&rating=1&comment=GOOD",
+		  dataType:"json",
+		  success:function(){
+			  alert("saved successfully");
+		  },
+		  error:function(){
+			  alert("data input error");
+		  }
+				  
+		  
+	  });
+	
+	});
+
+	$(function(){
+		// Calling Login Form
+		$("#login_form").click(function(){
+			$(".social_login").hide();
+			$(".user_login").show();
+			return false;
+		});
+
+		// Calling Register Form
+		$("#register_form").click(function(){
+			$(".social_login").hide();
+			$(".user_register").show();
+			$(".header_title").text('Register');
+			return false;
+		});
+
+		// Going back to Social Forms
+		$(".back_btn").click(function(){
+			$(".user_login").hide();
+			$(".user_register").hide();
+			$(".social_login").show();
+			$(".header_title").text('Login');
+			return false;
+		});
+
+	})
+</script>
+		<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>	
+</body>
+</html>
